@@ -79,7 +79,7 @@
     Antenna Measurement Ranges <br> <em>(IEEE Std 149-2021)</em>
   </h3>
 
-  <div class="ui centered grid" style="margin: 1rem;">
+  <div class="ui centered grid" style="margin: 0.25rem;">
     <form class="ui form sixteen wide tablet eight wide computer column">
       <h4 class="ui dividing header center aligned">Antenna</h4>
       <div class="field">
@@ -111,6 +111,15 @@
       </div> -->
     </form>
   </div>
+
+  <table class="ui celled table unstackable" style="border: 0px; margin: 0rem;">
+    <tr>
+      <td colspan="4">
+        <div class="ui red message invisible">Ideal range not found.</div>
+        <div class="ui green message invisible"><span class="ui text black"></span></div>
+      </td>
+    </tr>
+  </table>
 
   <div style="margin: 0 1rem 1rem 1rem !important;">
     <table class="ui celled structured table unstackable">
@@ -184,12 +193,6 @@
           </td>
           <td class="center aligned" wlc>
             &gt;10&lambda;
-          </td>
-        </tr>
-        <tr>
-          <td colspan="4">
-            <div class="ui red message invisible">Ideal range not found.</div>
-            <div class="ui green message invisible"><span class="ui text black"></span></div>
           </td>
         </tr>
         <tr>
@@ -299,6 +302,7 @@
           for (var i = 1; i < matchedRanges.length; i++) {
             $('.green.message>span').text($('.green.message>span').text() + ' & ' + matchedRanges[i])
           }
+          $('.green.message>span').text('Suitable ranges: ' + $('.green.message>span').text())
           $('.green.message').removeClass("invisible")
         }
 
